@@ -32,5 +32,5 @@ gulp.task("imgrev", function (argument) {
                 }
             }
         }))
-        .pipe(gulp.dest(process.cwd()+'/dist/'));
+        .pipe(gulp.dest(process.cwd()+'/release/'));
 });
