@@ -5,9 +5,6 @@ var minifyHtml = require('gulp-minify-html');
 var minifyCss = require('gulp-minify-css');
 var rev = require('gulp-rev');
 var autoprefixer = require('gulp-autoprefixer');
-var dir = require('./directory.js');
-var currentDirectory = dir.currentDirectory;
-var release = dir.currentDirectory + 'release/';
 var pxtorem = require('gulp-pxtorem');
 
 var pxtoremOptions = {
@@ -22,7 +19,7 @@ var postcssOptions = {
 };
 
 gulp.task('usemin', function() {
-  return gulp.src(currentDirectory + '*.html')
+  return gulp.src(process.cwd()+ '/*.html')
     .pipe(gulpusemin({
       css: [ autoprefixer({
         browsers: [
@@ -46,7 +43,7 @@ gulp.task('usemin', function() {
       inlinejs: [uglify()],
       inlinecss: [minifyCss(), 'concat']
     }))
-    .pipe(gulp.dest(release));
+    .pipe(gulp.dest(process.cwd()+'/release'));
 });
 
 
@@ -74,48 +71,9 @@ gulp.task('usemin-px', function() {
       js: [
           uglify(),
           rev()
-
       ],
       inlinejs: [uglify()],
       inlinecss: [minifyCss(), 'concat']
     }))
-    .pipe(gulp.dest(release));
+    .pipe(gulp.dest(process.cwd()+'/release'));
 });
-
-
-
-
-/* Tutorial
-
-<!-- build:css style.css -->
-<link rel="stylesheet" href="css/clear.css"/>
-<link rel="stylesheet" href="css/main.css"/>
-<!-- endbuild -->
-
-<!-- build:task2 js/lib.js -->
-<script src="../lib/angular-min.js"></script>
-<script src="../lib/angular-animate-min.js"></script>
-<!-- endbuild -->
-
-<!-- build:task1 js/app.js -->
-<script src="js/app.js"></script>
-<script src="js/controllers/thing-controller.js"></script>
-<script src="js/models/thing-model.js"></script>
-<script src="js/views/thing-view.js"></script>
-<!-- endbuild -->
-
-<!-- build:remove -->
-<script src="js/localhostDependencies.js"></script>
-<!-- endbuild -->
-
-<!-- build:inlinejs -->
-<script src="../lib/angular-min.js"></script>
-<script src="../lib/angular-animate-min.js"></script>
-<!-- endbuild -->
-
-<!-- build:inlinecss -->
-<link rel="stylesheet" href="css/clear.css"/>
-<link rel="stylesheet" href="css/main.css"/>
-<!-- endbuild -->
-
-*/

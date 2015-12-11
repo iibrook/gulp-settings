@@ -3,9 +3,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var pxtorem = require('gulp-pxtorem');
 var gulpif= require('gulp-if');
-var dir = require('./directory.js');
 
-var currentDirectory=dir.currentDirectory;
 var pxtoremOptions = {
   root_value: 32,
   unit_precision: 5,
@@ -18,8 +16,8 @@ var postcssOptions = {
 };
 var setPxtorem=false;
 gulp.task('sass', function() {
-  gulp.src(currentDirectory + 'sass/**/*.scss')
+  gulp.src(process.cwd()+ '/scss/*')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulpif(setPxtorem, pxtorem(pxtoremOptions, postcssOptions)))
-    .pipe(gulp.dest(currentDirectory + 'css/'))
+    .pipe(gulp.dest(process.cwd()+ '/css/'))
 });

@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var dir = require('./directory.js');
 var runSequence = require('gulp-run-sequence');
 var argv = require('minimist')(process.argv.slice(2));
 

@@ -1,13 +1,8 @@
 var gulp = require('gulp');
-var dir=require('./directory.js');
-
-var imgDirectory=dir.imgDirectory;
-var currentDirectory=dir.currentDirectory;
-var releaseDirectory=dir.currentDirectory+'release/'+dir.imgName;
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 gulp.task('imagemin', function() {
-  return gulp.src(imgDirectory+'/*')
+  return gulp.src(process.cwd()+'/img/*')
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{
@@ -15,5 +10,5 @@ gulp.task('imagemin', function() {
       }],
       use: [pngquant()]
     }))
-    .pipe(gulp.dest(releaseDirectory));
+    .pipe(gulp.dest(process.cwd()+'/release/img/'));
 });
