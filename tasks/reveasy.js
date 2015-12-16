@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var reveasy = require('gulp-rev-easy');
 
 gulp.task("reveasy", function (argument) {
-  return gulp.src(process.cwd()+ 'release/*.html')
+  return gulp.src(process.cwd()+ '/release/*.html')
         .pipe(reveasy({
             fileTypes:['js','css','img'],
             elementAttributes:{
