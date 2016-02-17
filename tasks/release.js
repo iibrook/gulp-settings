@@ -13,9 +13,9 @@ gulp.task('release', function(cb) {
     //
     console.log('此功能在实验性质阶段')
     // inline resouce
-     runSequence('clean','sass','imagemin','useref-rem','inline');
+     runSequence('clean','livereload-sass','imagemin','useref-rem','inline');
   }else{
     //for the pc
-    runSequence('clean','sass','imagemin','useref', 'reveasy');
+    runSequence('clean','livereload-sass','imagemin','useref', 'reveasy');
   }
 });

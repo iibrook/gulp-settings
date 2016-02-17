@@ -94,7 +94,7 @@ var sass = require('gulp-sass');
 var pxtoremOptions = {
     root_value: 32,
     unit_precision: 5,
-    prop_white_list: ['font', 'font-size', 'line-height', 'letter-spacing','background', 'background-position', 'background-size', 'border', 'width', 'height', 'margin', 'margin-top', 'margin-left', 'margin-right', 'margin-bottom', 'padding', 'padding-left', 'padding-right', 'padding-top', 'padding-bottom', 'border', 'border-left', 'border-right', 'border-top', 'border-bottom', 'box-shadow', '-webkit-box-shadow', 'top', 'left', 'right', 'bottom','text-indent','transform','-webkit-transform','border-radius'],
+    prop_white_list: ['font', 'font-size', 'line-height', 'letter-spacing','background', 'background-position', 'background-size', 'border', 'width', 'height','min-height', 'margin', 'margin-top', 'margin-left', 'margin-right', 'margin-bottom', 'padding', 'padding-left', 'padding-right', 'padding-top', 'padding-bottom', 'border', 'border-left', 'border-right', 'border-top', 'border-bottom', 'box-shadow', '-webkit-box-shadow', 'top', 'left', 'right', 'bottom','text-indent','transform','-webkit-transform','border-radius'],
     replace: true,
     media_query: false
 };
